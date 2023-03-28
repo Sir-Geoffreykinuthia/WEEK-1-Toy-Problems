@@ -1,0 +1,28 @@
+function netSalaryCalculator(basicSalary, benefits) {
+    const payee = 0.3 * basicSalary;
+    const nhifDeductions = basicSalary >= 100000 ? 1700 : 0;
+    const nssfDeductions = basicSalary >= 100000 ? 6000 : 0;
+    const personalRelief = 2400;
+    const insuaranceRelief = 0;
+    const totalDeductions = payee + nhifDeductions + nssfDeductions + personalRelief + insuaranceRelief;
+    const taxableIncome = basicSalary + benefits - totalDeductions;
+    const netSalary = basicSalary + benefits - totalDeductions;
+    const grossSalary = basicSalary + benefits;
+  
+    return {
+      netSalary,
+      grossSalary,
+      payee,
+      nhifDeductions,
+      nssfDeductions,
+      totalDeductions,
+      taxableIncome,
+    };
+  }
+  
+  const basicSalary = 100000;
+  const benefits = 3400;
+  
+  const salary = netSalaryCalculator(basicSalary, benefits);
+  
+  console.log(salary);
