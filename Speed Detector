@@ -1,0 +1,22 @@
+function speedLimitCheck(speed){
+    let limit = 70;
+    let points= 0;
+    let demerit = 0;
+
+if (speed < limit) {
+    console.log("OK");
+
+}else if (speed >= limit) {
+    points = Math.floor((speed - limit) / 5);
+    demerit = points;
+}
+if (demerit > 12) {
+    console.log('license Suspended');
+}else{
+    console.log(`points: ${demerit}`);
+} 
+
+}
+
+let speed = prompt("Enter the car speed");
+speedLimitCheck(speed);
